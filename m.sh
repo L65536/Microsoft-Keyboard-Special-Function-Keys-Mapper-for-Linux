@@ -13,14 +13,11 @@
 
 while true
 do
-    #XXX read -r -a elements <<< "$(hexdump /dev/input/event21)" # not working
     read -r -a elements < <(hexdump -e '24/2 "%04x " "\n"' -n 24 /dev/input/event21)  
-    
-    echo "${elements[1]} ${elements[10]}"
-    
+        
     if [[ "${elements[10]}" == "00cd" ]]; then
         echo "Media Play"
-        runuser -u guest /home/guest/script/hdmi3.sh
+        # runuser -u guest /home/guest/script/hdmi3.sh
     fi  
     if [[ "${elements[10]}" == "00b6" ]]; then
         echo "Media Backward"
