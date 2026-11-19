@@ -8,7 +8,9 @@ The scripts provide a basic structure of mapping to anything achievable with she
 Each script looks into the hexdump of different device interfaces.
 - hexdump /dev/input/event#
 - hexdump /dev/hidraw#
-  
+ 
+For the 2nd script, do not press the same key repeatively or the report boundary will be off.
+
 # How to Use
 Find out the corresponding event[ID] and hidraw[ID]
 
